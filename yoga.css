@@ -1,0 +1,191 @@
+header, nav, main, footer 
+{ 
+  display: block;
+}
+
+body
+{
+  background-color: #3F2860;
+  color: #3F2860;
+  font-family: Verdana, sans-serif;
+}
+
+header
+{
+  background-color: #9BC1C2;
+  background-image: url("Yoga Images/lilyheader.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 150px;
+}
+
+h1
+{
+  padding-top: 50px;
+  padding-left: 2em;
+}
+
+nav
+{
+  margin-left: 20px;
+  padding: 1em;
+  font-weight: bold;
+  float: left;
+  width: 160px;
+}
+
+.navul
+{
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+main
+{
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: 170px;
+  padding-top: 1em;
+}
+
+
+
+.nava
+{
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  border: outset 3px #CCCCCC;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.nava:link
+{
+  color: #3F2860;
+}
+
+.nava:visited
+{
+  color: #497777;
+}
+
+.nava:hover
+{
+  color: #A26100;
+  border: inset 3px #333333;
+}
+
+.studio
+{
+  font-style: italic;
+}
+
+footer
+{
+  padding: 1em;
+  background-color: #9BC1C2;
+  font-size: .60em;
+  font-style: italic;
+  text-align: center;
+}
+
+.copyright
+{
+  margin-bottom: 0px;
+}
+
+#wrapper
+{
+  background-color: #F5F5F5;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 1200px;
+  max-width: 1480px;
+}
+
+*
+{
+  box-sizing: border-box;
+}
+
+.floatleft
+{
+  float: left;
+  margin-right: 4em;
+}
+
+.clear
+{
+  clear: both;
+}
+
+table
+{
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  width: 60%;
+  border: 1px solid #3F2860;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+
+}
+
+th,td
+{
+  padding: 5px;
+  border: 1px solid #3F2860;
+}
+
+tr:nth-of-type(even)
+{
+  background-color: #9BC1C2;
+}
+
+caption
+{
+  margin: 1em;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+audio
+{
+  display: block;
+  margin: 1em;
+}
+
+label
+{
+  float: left;
+  display: block;
+  text-align: right;
+  font-weight: bold;
+  width: 10em;
+  padding-right: 1em;
+}
+
+input
+{
+  display: block;
+  margin-bottom: 2em;
+}
+
+textarea
+{
+  display: block;
+  margin-bottom: 2em;
+}
+
+#mySubmit
+{
+  margin-left: 12em;
+}
+
+form
+{
+  padding: 3em;
+}
