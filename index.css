@@ -157,57 +157,57 @@ header
 
 
 /* NAVIGATION SECTION STYLING */
-nav 
-{
+nav {
   background-color: var(--bright);
   display: flex;
   justify-content: space-between;
   padding: 20px;
 }
 
-nav ul /* Styling for all unordered lists in the navigation bar */
-{
+nav ul {
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap; /* Added to wrap items to next line on smaller screens */
   margin: 0;
   padding: 0;
 }
 
-nav li /* Styling for all ths list items in the navigation bar */
-{
-  margin: 10px 0;
+nav li {
+  margin: 0 15px;
   position: relative;
 }
 
-nav a /* Styling for all anchor elements in the navigation bar */
-{
+nav a {
   text-decoration: none;
   color: var(--white);
   font-weight: bold;
-  padding: 10px;
+  padding: 20px 5px;
   transition: all 0.3s ease;
 }
 
-.dropdown-menu 
-{
-  margin-top: 12px;
-  display: none; /* initially hidden */
-  position: static;
-  width: 100%;
-  background-color: var(--white);
-  border: 1px solid var(--gb);
+nav a:hover {
+  background-color: var(--dark);
 }
 
-.dropdown-menu li 
-{
+.dropdown-menu {
+  margin-top: 12px;
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 200px;
+  background-color: var(--white);
+  border: 1px solid var(--gb);
+  z-index: 999;
+}
+
+.dropdown-menu li {
   padding: 3px;
   margin: 0;
   border-bottom: 1px solid var(--gb);
 }
 
-.dropdown-menu a 
-{
+.dropdown-menu a {
   padding: 5px;
   display: flex;
   align-items: left;
@@ -215,77 +215,66 @@ nav a /* Styling for all anchor elements in the navigation bar */
   color: var(--bright);
 }
 
-.dropdown-menu a:hover 
-{
+.dropdown-menu a:hover {
   color: var(--white);
   background-color: var(--dark);
 }
 
-.dropdown:hover .dropdown-menu /* CSS selector that targets a dropdown menu element that is a child of an element with the class .dropdown */
-{
+.dropdown:hover .dropdown-menu {
   display: block;
 }
 
-.dropdown-menu h3 
-{
+.dropdown-menu h3 {
   width: 500px;
   padding: 10px;
   font-size: 1.0em;
 }
 
-/* Media query for mobile devices */
-@media only screen and (max-width: 600px) 
-{
-  nav 
-  {
-    flex-direction: column;
-    align-items: center;
+/* MEDIA QUERY FOR SMALLER SCREENS */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column; /* Change the flex direction to stack items vertically */
+    align-items: center; /* Center items vertically */
   }
   
-  nav ul 
-  {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--bright);
-    width: 100%;
-    display: none;
+  nav ul {
+    width: 100%; /* Make the list take up the full width of the screen */
+    flex-direction: column; /* Stack list items vertically */
+    align-items: center; /* Center list items horizontally */
+    padding: 0; /* Remove padding from the list */
   }
   
-  nav li 
-  {
-    margin: 10px 0;
+  nav li {
+    margin: 10px 0; /* Add margin to separate list items */
   }
   
-  nav li:hover ul 
-  {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .dropdown-menu {
+    position: static; /* Change the position to static so it takes up full width of screen */
+    width: 100%; /* Make the dropdown menu take up the full width of the screen */
+    margin-top: 0; /* Remove margin from the dropdown menu */
   }
   
-  nav a 
-  {
-    padding: 10px;
+  .dropdown:hover .dropdown-menu {
+    display: none; /* Hide the dropdown menu initially */
   }
   
-  .dropdown-menu 
-  {
-    margin: 0;
-    border: none;
-    width: 100%;
+  .dropdown > a {
+    display: flex; /* Change the display property to flex */
+    justify-content: space-between; /* Space out the items within the link */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Make the link take up the full width of the screen */
   }
   
-  .dropdown-menu li 
-  {
-    border-bottom: none;
-    width: 100%;
-    text-align: center;
+  .dropdown > a i {
+    margin-left: auto; /* Push the icon to the right side of the link */
   }
   
-  .dropdown-menu a 
-  {
-    padding: 10px;
+  .dropdown > a:hover .fa-angle-down {
+    transform: rotate(180deg); /* Rotate the icon 180 degrees on hover */
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block; /* Show the dropdown menu on hover */
   }
 }
 
