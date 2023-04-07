@@ -1,35 +1,51 @@
-:root{
+/* DESIGN COLORS USED */
+:root
+{
   --white: #fff;
   --bright:  rgb(44, 116, 179);
   --dark: rgb(20, 66, 114);
   --gb: #ccc;
 }
-::-webkit-scrollbar {
+/************************************************************************************************************/
+
+
+/* SCROLL BAR STYLING */
+::-webkit-scrollbar 
+{
   width: 7px;
 }
-
-::-webkit-scrollbar-track {
+::-webkit-scrollbar-track /* the track which hold the draggable part of the scrollbar */
+{
   background: var(--white);
 }
-
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb  /* the thumb is the draggable part of the scroll bar */
+{
   background-color: var(--bright);
   border-radius: 10px;
 }
+/************************************************************************************************************/
+
+
+/* GENERAL STYLING OF THE BODY */
 body
 {
   background-color: var(--white);
   font-family: Arial, Helvetica, sans-serif;
 }
-* {
+* /* targetting all the elements */
+{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* width including the padding of elements */
 }
-/* Header Styles */
+/************************************************************************************************************/
+
+
+/* HEADER SECTION STYLING */
 header 
 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -39,110 +55,135 @@ header
   max-height: 150px;
   max-width: 200px;
 }
-.mail
+.header-center 
 {
-  text-decoration: none;
-  color: var(--bright);
-}
-.mail:hover
-{
-  opacity: 0.8;
-}
-.mail:active
-{
-  opacity: 0.6;
-}
-.phone
-{
-  text-decoration: none;
-  color: var(--bright);
-}
-.phone:hover
-{
-  opacity: 0.8;
-}
-.phone:active
-{
-  opacity: 0.6;
-}
-.location
-{
-  text-decoration: none;
-  color: var(--bright);
-}
-.location:hover
-{
-  opacity: 0.8;
-}
-.location:active
-{
-  opacity: 0.6;
-}
-.header-center {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
 }
-
-.icon {
+.mail, .phone, .location
+{
+  text-decoration: none;
+  color: var(--bright);
+  font-size: 14px;
+  display: block;
+  margin: 5px 0;
+}
+.mail:hover, .phone:hover, .location:hover
+{
+  opacity: 0.7;
+}
+.mail:active, .phone:active, .location:active
+{
+  opacity: 0.6;
+}
+.icon 
+{
   color: var(--bright);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 3px;
+  margin: 0 10px;
   font-size: 16px;
+  position: relative;
 }
-
-.icon i {
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
+.icon:not(:last-child):after {
+  content: '|';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.icon > i 
+{
+  font-weight: bold;
   font-size: 20px;
   margin-right: 5px;
   color: var(--bright);
 }
 
+/* Mobile-friendly layout for header */
+@media only screen and (max-width: 600px) {
+
+  .logo > img 
+  {
+    max-height: 80px;
+    max-width: 80px;
+  }
+
+  .icon 
+  {
+    font-size: 14px;
+    margin: 0 5px;
+  }
+
+  .icon:not(:last-child):after {
+    content: none;
+  }
+
+  .mail, .phone, .location
+  {
+    font-size: 12px;
+    margin: 5px;
+  }
+
+  .header-center 
+  {
+    margin-top: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-container input[type="text"] 
+  {
+    width: 70%;
+    margin-right: 5px;
+  }
+
+  .search-container button 
+  {
+    margin-left: 5px;
+  }
+
+}
+/************************************************************************************************************/
 
 
-
-
-
-
-
-
-nav {
+/* NAVIGATION SECTION STYLING */
+nav 
+{
   background-color: var(--bright);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding: 20px;
 }
-
-nav ul {
+nav ul /* Styling for all unordered lists in the navigation bar */
+{
   list-style: none;
   display: flex;
-  justify-content: center;
 }
-nav li {
+nav li /* Styling for all ths list items in the navigation bar */
+{
   margin: 0 15px;
   position: relative;
 }
-nav a {
+nav a /* Styling for all anchor elements in the navigation bar */
+{
   text-decoration: none;
   color: var(--white);
   font-weight: bold;
   padding: 20px 5px;
   transition: all 0.3s ease;
 }
-.da
+nav a:hover 
 {
-  padding: 1px;
-}
-nav a:hover {
   background-color: var(--dark);
 }
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
+.dropdown-menu 
+{
+  margin-top: 12px;
+  display: none; /* initially hidden */
+  position: absolute; /* Absolutely relative to its parent "the product anchor" */
   top: 10px;
   left: 0;
   width: 200px;
@@ -150,54 +191,36 @@ nav a:hover {
   border: 1px solid var(--gb);
   z-index: 999;
 }
-
-.dropdown-menu li {
-  padding: 5px;
+.dropdown-menu li 
+{
+  padding: 3px;
+  margin: 0;
   border-bottom: 1px solid var(--gb);
 }
-
-.dropdown-menu a {
+.dropdown-menu a 
+{
+  padding: 5px;
   display: flex;
   align-items: left;
   text-decoration: none;
   color: var(--bright);
 }
-
-.dropdown-menu a:hover {
+.dropdown-menu a:hover 
+{
   color: var(--white);
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown a:hover {
-  color:  var(--white);
   background-color: var(--dark);
 }
-
-
-
-.dropdown-menu h3 {
-  width: 300px;
+.dropdown:hover .dropdown-menu /* CSS selector that targets a dropdown menu element that is a child of an element with the class .dropdown */
+{
+  display: block;
+}
+.dropdown-menu h3 
+{
+  width: 500px;
   padding: 10px;
-  margin: 5px 10px;
   font-size: 1.0em;
 }
-
-
-/* Adjust the padding and margin of the dropdown menu */
-.dropdown-menu {
-  padding: 0;
-  margin-top: 12px;
-}
-
-/* Adjust the padding and margin of the dropdown menu items */
-.dropdown-menu li {
-  padding: 10px;
-  margin: 0;
-}
-
+/************************************************************************************************************/
 
 
 
