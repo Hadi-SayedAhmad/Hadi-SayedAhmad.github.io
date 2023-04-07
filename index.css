@@ -106,14 +106,14 @@ header
 
   .logo > img 
   {
-    max-height: 80px;
-    max-width: 80px;
+    max-height: 150px;
+    max-width: 200px;
   }
 
   .icon 
   {
-    font-size: 14px;
-    margin: 0 5px;
+    font-size: 12px;
+    margin: 0 auto;
   }
 
   .icon:not(:last-child):after {
@@ -123,12 +123,12 @@ header
   .mail, .phone, .location
   {
     font-size: 12px;
-    margin: 5px;
+    margin: 5px auto;
   }
 
   .header-center 
   {
-    margin-top: 0;
+    margin: 0 auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -137,12 +137,12 @@ header
   .search-container input[type="text"] 
   {
     width: 70%;
-    margin-right: 5px;
+    margin: 1px auto;
   }
 
   .search-container button 
   {
-    margin-left: 5px;
+    margin-left: 3px;
   }
 
 }
