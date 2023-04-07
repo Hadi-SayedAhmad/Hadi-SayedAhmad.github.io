@@ -1,0 +1,399 @@
+:root{
+  --white: #fff;
+  --bright:  rgb(44, 116, 179);
+  --dark: rgb(20, 66, 114);
+  --gb: #ccc;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--bright);
+  border-radius: 10px;
+}
+body
+{
+  background-color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Header Styles */
+header 
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.logo > img 
+{
+  max-height: 150px;
+  max-width: 200px;
+}
+.mail
+{
+  text-decoration: none;
+  color: var(--bright);
+}
+.mail:hover
+{
+  opacity: 0.8;
+}
+.mail:active
+{
+  opacity: 0.6;
+}
+.phone
+{
+  text-decoration: none;
+  color: var(--bright);
+}
+.phone:hover
+{
+  opacity: 0.8;
+}
+.phone:active
+{
+  opacity: 0.6;
+}
+.location
+{
+  text-decoration: none;
+  color: var(--bright);
+}
+.location:hover
+{
+  opacity: 0.8;
+}
+.location:active
+{
+  opacity: 0.6;
+}
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  color: var(--bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  font-size: 16px;
+}
+
+.icon i {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 20px;
+  margin-right: 5px;
+  color: var(--bright);
+}
+
+
+
+
+
+
+
+
+
+nav {
+  background-color: var(--bright);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+nav li {
+  margin: 0 15px;
+  position: relative;
+}
+nav a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: bold;
+  padding: 20px 5px;
+  transition: all 0.3s ease;
+}
+.da
+{
+  padding: 1px;
+}
+nav a:hover {
+  background-color: var(--dark);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 200px;
+  background-color: var(--white);
+  border: 1px solid var(--gb);
+  z-index: 999;
+}
+
+.dropdown-menu li {
+  padding: 5px;
+  border-bottom: 1px solid var(--gb);
+}
+
+.dropdown-menu a {
+  display: flex;
+  align-items: left;
+  text-decoration: none;
+  color: var(--bright);
+}
+
+.dropdown-menu a:hover {
+  color: var(--white);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown a:hover {
+  color:  var(--white);
+  background-color: var(--dark);
+}
+
+
+
+.dropdown-menu h3 {
+  width: 300px;
+  padding: 10px;
+  margin: 5px 10px;
+  font-size: 1.0em;
+}
+
+
+/* Adjust the padding and margin of the dropdown menu */
+.dropdown-menu {
+  padding: 0;
+  margin-top: 12px;
+}
+
+/* Adjust the padding and margin of the dropdown menu items */
+.dropdown-menu li {
+  padding: 10px;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Footer Styles */
+footer {
+  background-color: var(--bright);
+  color: var(--white);
+  text-align: center;
+  padding: 20px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.search-container form {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-container input[type=text] {
+  padding: 10px;
+  border: 2px solid var(--bright);
+  border-radius: 30px;
+  background: var(--white);
+  width: 200px;
+  transition: width 0.4s ease-in-out;
+}
+
+.search-container input[type=text]:focus {
+  width: 200px;
+  outline: none;
+}
+
+.search-container button {
+  background: var(--bright);
+  color: var(--white);
+  border: none;
+  border-radius: 30px;
+  padding: 10px;
+  margin-left: -50px;
+  transition: margin-left 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background: var(--dark);
+}
+
+.search-container input[type=text]:focus + button {
+  margin-left: 0px;
+}
+
+.slider-container {
+  margin-top: 3px;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Slider items */
+.slider-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Active slider item */
+.slider-item.active {
+  opacity: 1;
+}
+
+/* Slider item images */
+.slider-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Slider item text */
+.slider-item-text {
+  position: absolute;
+  bottom: 20%;
+  left: 20%;
+  right: 20%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Active slider item text */
+.slider-item.active .slider-item-text {
+  opacity: 1;
+}
+
+/* Slider item text headings */
+.slider-item-text h2, 
+.slider-item-text p {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+/* Slider item text paragraphs */
+.slider-item-text p {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Slider arrows */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Hover effect for slider arrows */
+.slider-arrow:hover {
+  background-color: var(--dark);
+}
+
+/* Left slider arrow */
+.slider-arrow-left {
+  left: 20px;
+}
+
+/* Right slider arrow */
+.slider-arrow-right {
+  right: 20px;
+}
+
+/* Slider arrow icons */
+.slider-arrow:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Left slider arrow icon */
+.slider-arrow-left:before {
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+/* Right slider arrow icon */
+.slider-arrow-right:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.content
+{
+  margin-top: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
