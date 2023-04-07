@@ -164,46 +164,48 @@ nav
   justify-content: space-between;
   padding: 20px;
 }
+
 nav ul /* Styling for all unordered lists in the navigation bar */
 {
   list-style: none;
   display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
+
 nav li /* Styling for all ths list items in the navigation bar */
 {
-  margin: 0 15px;
+  margin: 10px 0;
   position: relative;
 }
+
 nav a /* Styling for all anchor elements in the navigation bar */
 {
   text-decoration: none;
   color: var(--white);
   font-weight: bold;
-  padding: 20px 5px;
+  padding: 10px;
   transition: all 0.3s ease;
 }
-nav a:hover 
-{
-  background-color: var(--dark);
-}
+
 .dropdown-menu 
 {
   margin-top: 12px;
   display: none; /* initially hidden */
-  position: absolute; /* Absolutely relative to its parent "the product anchor" */
-  top: 10px;
-  left: 0;
-  width: 200px;
+  position: static;
+  width: 100%;
   background-color: var(--white);
   border: 1px solid var(--gb);
-  z-index: 999;
 }
+
 .dropdown-menu li 
 {
   padding: 3px;
   margin: 0;
   border-bottom: 1px solid var(--gb);
 }
+
 .dropdown-menu a 
 {
   padding: 5px;
@@ -212,21 +214,81 @@ nav a:hover
   text-decoration: none;
   color: var(--bright);
 }
+
 .dropdown-menu a:hover 
 {
   color: var(--white);
   background-color: var(--dark);
 }
+
 .dropdown:hover .dropdown-menu /* CSS selector that targets a dropdown menu element that is a child of an element with the class .dropdown */
 {
   display: block;
 }
+
 .dropdown-menu h3 
 {
   width: 500px;
   padding: 10px;
   font-size: 1.0em;
 }
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 600px) 
+{
+  nav 
+  {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav ul 
+  {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--bright);
+    width: 100%;
+    display: none;
+  }
+  
+  nav li 
+  {
+    margin: 10px 0;
+  }
+  
+  nav li:hover ul 
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav a 
+  {
+    padding: 10px;
+  }
+  
+  .dropdown-menu 
+  {
+    margin: 0;
+    border: none;
+    width: 100%;
+  }
+  
+  .dropdown-menu li 
+  {
+    border-bottom: none;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .dropdown-menu a 
+  {
+    padding: 10px;
+  }
+}
+
 /************************************************************************************************************/
 
 
