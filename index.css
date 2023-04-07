@@ -45,7 +45,6 @@ body
 header 
 {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -60,21 +59,43 @@ header
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
 }
-.mail, .phone, .location
+.mail
 {
   text-decoration: none;
   color: var(--bright);
-  font-size: 14px;
-  display: block;
-  margin: 5px 0;
 }
-.mail:hover, .phone:hover, .location:hover
+.mail:hover
 {
   opacity: 0.7;
 }
-.mail:active, .phone:active, .location:active
+.mail:active
+{
+  opacity: 0.6;
+}
+.phone
+{
+  text-decoration: none;
+  color: var(--bright);
+}
+.phone:hover
+{
+  opacity: 0.8;
+}
+.phone:active
+{
+  opacity: 0.6;
+}
+.location
+{
+  text-decoration: none;
+  color: var(--bright);
+}
+.location:hover
+{
+  opacity: 0.8;
+}
+.location:active
 {
   opacity: 0.6;
 }
@@ -82,16 +103,8 @@ header
 {
   color: var(--bright);
   display: flex;
-  margin: 0 10px;
+  margin: 0 3px;
   font-size: 16px;
-  position: relative;
-}
-.icon:not(:last-child):after {
-  content: '|';
-  position: absolute;
-  right: -8px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 .icon > i 
 {
@@ -100,99 +113,44 @@ header
   margin-right: 5px;
   color: var(--bright);
 }
-
-/* Mobile-friendly layout for header */
-/* HEADER SECTION STYLING */
-
-/* Mobile devices */
-@media only screen and (max-width: 600px) {
-  header {
-    flex-direction: column;
-    padding: 10px;
-  }
-  
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .logo > img {
-    max-height: 100px;
-    max-width: 150px;
-  }
-  
-  .search-container {
-    margin-bottom: 10px;
-  }
-  
-  .search-container > form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .search-container > form > input {
-    width: 100%;
-    max-width: 200px;
-    margin-bottom: 5px;
-  }
-  
-  .search-container > form > button {
-    width: 100%;
-    max-width: 100px;
-  }
-  
-  .header-center {
-    flex-direction: column;
-  }
-  
-  .icon {
-    margin: 5px;
-  }
-}
-
 /************************************************************************************************************/
 
 
 /* NAVIGATION SECTION STYLING */
-nav {
+nav 
+{
   background-color: var(--bright);
   display: flex;
   justify-content: space-between;
   padding: 20px;
 }
-
-nav ul {
+nav ul /* Styling for all unordered lists in the navigation bar */
+{
   list-style: none;
   display: flex;
-  flex-wrap: wrap; /* Added to wrap items to next line on smaller screens */
-  margin: 0;
-  padding: 0;
 }
-
-nav li {
+nav li /* Styling for all ths list items in the navigation bar */
+{
   margin: 0 15px;
   position: relative;
 }
-
-nav a {
+nav a /* Styling for all anchor elements in the navigation bar */
+{
   text-decoration: none;
   color: var(--white);
   font-weight: bold;
   padding: 20px 5px;
   transition: all 0.3s ease;
 }
-
-nav a:hover {
+nav a:hover 
+{
   background-color: var(--dark);
 }
-
-.dropdown-menu {
+.dropdown-menu 
+{
   margin-top: 12px;
-  display: none;
-  position: absolute;
+  display: none; /* initially hidden */
+  position: absolute; /* Absolutely relative to its parent "the product anchor" */
   top: 10px;
   left: 0;
   width: 200px;
@@ -200,84 +158,35 @@ nav a:hover {
   border: 1px solid var(--gb);
   z-index: 999;
 }
-
-.dropdown-menu li {
+.dropdown-menu li 
+{
   padding: 3px;
   margin: 0;
   border-bottom: 1px solid var(--gb);
 }
-
-.dropdown-menu a {
+.dropdown-menu a 
+{
   padding: 5px;
   display: flex;
   align-items: left;
   text-decoration: none;
   color: var(--bright);
 }
-
-.dropdown-menu a:hover {
+.dropdown-menu a:hover 
+{
   color: var(--white);
   background-color: var(--dark);
 }
-
-.dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu /* CSS selector that targets a dropdown menu element that is a child of an element with the class .dropdown */
+{
   display: block;
 }
-
-.dropdown-menu h3 {
+.dropdown-menu h3 
+{
   width: 500px;
   padding: 10px;
   font-size: 1.0em;
 }
-
-/* MEDIA QUERY FOR SMALLER SCREENS */
-@media screen and (max-width: 768px) {
-  nav {
-    flex-direction: column; /* Change the flex direction to stack items vertically */
-    align-items: center; /* Center items vertically */
-  }
-  
-  nav ul {
-    width: 100%; /* Make the list take up the full width of the screen */
-    flex-direction: column; /* Stack list items vertically */
-    align-items: center; /* Center list items horizontally */
-    padding: 0; /* Remove padding from the list */
-  }
-  
-  nav li {
-    margin: 10px 0; /* Add margin to separate list items */
-  }
-  
-  .dropdown-menu {
-    position: static; /* Change the position to static so it takes up full width of screen */
-    width: 100%; /* Make the dropdown menu take up the full width of the screen */
-    margin-top: 0; /* Remove margin from the dropdown menu */
-  }
-  
-  .dropdown:hover .dropdown-menu {
-    display: none; /* Hide the dropdown menu initially */
-  }
-  
-  .dropdown > a {
-    display: flex; /* Change the display property to flex */
-    justify-content: space-between; /* Space out the items within the link */
-    align-items: center; /* Center items vertically */
-    width: 100%; /* Make the link take up the full width of the screen */
-  }
-  
-  .dropdown > a i {
-    margin-left: auto; /* Push the icon to the right side of the link */
-  }
-  
-  .dropdown > a:hover .fa-angle-down {
-    transform: rotate(180deg); /* Rotate the icon 180 degrees on hover */
-  }
-  
-  .dropdown:hover .dropdown-menu {
-    display: block; /* Show the dropdown menu on hover */
-  }
-}
-
 /************************************************************************************************************/
 
 
