@@ -1,0 +1,22 @@
+
+							/* HOME PAGE :: MAIN :: SLIDER FUNCTIONALITY :: JQUERY */
+
+
+$(document).ready(function()  //wait until the document has finished loading before executing any code.
+
+
+find(".slider-item"); 
+jQuery method that searches for all child elements of the jQuery object :: selects all child elements of sliderContainer with class "slider-item" :: then It returns a new jQuery object that contains all of the matched elements.
+
+sliderItems.removeClass("active"); removes the "active" class from all sliderItems.
+
+$(sliderItems[index]).addClass("active"); adds the "active" class to the sliderItem at the given index.
+
+
+clearInterval(slideTimer); stops the timer that's currently running.
+slideTimer = setInterval(nextSlide, slideInterval); call the nextSlide() function after the specified slideInterval.
+
+
+The nextSlide() function is defined to move to the next slide in the slider.
+
+/*********************************************************************************************************************************************************************/
