@@ -1,18 +1,21 @@
 // Define the function that filters the displayed products
-const filterDisplayedProducts = function () {
+const filterDisplayedProducts = function () 
+{
   const input = document.querySelector('.search-container input[type="text"]');
   const filter = input.value.toLowerCase();
-  const products = document.querySelectorAll('.product');
-  const message = document.querySelector('.search-message');
+  const products = document.querySelectorAll(".product");
+  const message = document.querySelector(".search-message");
 
   let count = 0;
   products.forEach(function (product) {
-    const name = product.querySelector('.product-name').textContent.toLowerCase();
+    const name = product
+      .querySelector(".product-name")
+      .textContent.toLowerCase();
     if (name.includes(filter)) {
-      product.style.display = 'block';
+      product.style.display = "block";
       count++;
     } else {
-      product.style.display = 'none';
+      product.style.display = "none";
     }
   });
 
@@ -24,10 +27,23 @@ const filterDisplayedProducts = function () {
 };
 
 // Add a click event listener to the search button
-const searchBtn = document.querySelector('.search-container button');
-searchBtn.addEventListener('click', function (event) {
+const searchBtn = document.querySelector(".search-container button");
+searchBtn.addEventListener("click", function (event) {
   event.preventDefault(); // Prevent form submission
   filterDisplayedProducts(); // Call the filter function
+});
+
+
+
+let nav_toggle = document.querySelector('.nav_toggle');
+let nav_toggle_icon = document.querySelector('.nav_toggle ion-icon');
+let nav_menu = document.querySelector('.nav_menu');
+
+nav_toggle.addEventListener('click', () => {
+  nav_menu.classList.toggle('active');
+  nav_toggle_icon.setAttribute('name',
+    nav_menu.classList.contains('active') ? 'close-outline' : 'menu-outline'
+  );
 });
 
 
@@ -38,7 +54,8 @@ Note that this code assumes that you have HTML elements with the class product t
 
 /* HOME PAGE :: MAIN :: SLIDER FUNCTIONALITY :: JQUERY */
 
-$(document).ready(function () {
+$(document).ready(function() 
+{
   let sliderContainer = $(".slider-container");
   let sliderItems = sliderContainer.find(".slider-item");
   let sliderItemCount = sliderItems.length;
@@ -49,7 +66,8 @@ $(document).ready(function () {
   let rightArrow = $(".slider-arrow-right");
 
   // SLIDE FUNCTIONALITY ACCORDING TO CERTAIN INDEX ARGUMENT
-  function slide(index) {
+  function slide(index) 
+  {
     // CURRENT SLIDE FUNCTION + AUTOMATIC SLIDING
     sliderItems.removeClass("active");
     $(sliderItems[index]).addClass("active");
@@ -63,26 +81,32 @@ $(document).ready(function () {
 
   let slideTimer = setInterval(nextSlide, slideInterval);
 
-  function nextSlide() {
+  function nextSlide() 
+  {
     let nextIndex = activeIndex + 1;
-    if (nextIndex >= sliderItemCount) {
+    if (nextIndex >= sliderItemCount) 
+    {
       nextIndex = 0;
     }
     slide(nextIndex);
   }
 
-  function previousSlide() {
+  function previousSlide() 
+  {
     let previousIndex = activeIndex - 1;
-    if (previousIndex < 0) {
+    if (previousIndex < 0) 
+    {
       previousIndex = sliderItemCount - 1;
     }
     slide(previousIndex);
   }
 
-  leftArrow.click(function () {
+  leftArrow.click(function () 
+  {
     previousSlide();
   });
-  rightArrow.click(function () {
+  rightArrow.click(function () 
+  {
     nextSlide();
   });
 });

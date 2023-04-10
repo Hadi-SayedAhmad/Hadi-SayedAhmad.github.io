@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
 /* DESIGN COLORS USED */
 :root
 {
@@ -37,6 +39,8 @@ body
   margin: 0;
   padding: 0;
   box-sizing: border-box; /* width including the padding of elements */
+  text-decoration: none;
+    list-style-type: none;
 }
 /************************************************************************************************************/
 
@@ -161,75 +165,160 @@ header
 
 
 /* NAVIGATION SECTION STYLING */
-nav 
+
+.container {
+  max-width:  100%;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation {
+
+ display: flex;
+ 
+  height: 60px;
+  position: relative;
+  background: var(--bright);
+}
+
+.nav_list {
+  display: inline-flex;
+  justify-content: space-between;
+  
+}
+
+.nav_list:hover
 {
-  background-color: var(--bright);
+  background-color: var(--dark);
+}
+
+.nav_link
+{
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-}
-nav ul /* Styling for all unordered lists in the navigation bar */
-{
-  list-style: none;
-  display: flex;
-}
-nav li /* Styling for all ths list items in the navigation bar */
-{
-  margin: 0 15px;
-  position: relative;
-}
-nav a /* Styling for all anchor elements in the navigation bar */
-{
-  text-decoration: none;
+  padding: 21px 21px;
+  margin-right: 1.5px;
+  gap: 3px   ;
   color: var(--white);
   font-weight: bold;
-  padding: 20px 5px;
-  transition: all 0.3s ease;
 }
-nav a:hover 
+
+.nav_toggle 
 {
-  background-color: var(--dark);
+  cursor: pointer;
+  display: none;
 }
-.dropdown-menu 
-{
-  margin-top: 12px;
-  display: none; /* initially hidden */
-  position: absolute; /* Absolutely relative to its parent "the product anchor" */
-  top: 10px;
-  left: 0;
-  width: 200px;
-  background-color: var(--white);
-  border: 1px solid var(--gb);
-  z-index: 999;
-}
-.dropdown-menu li 
-{
-  padding: 3px;
-  margin: 0;
-  border-bottom: 1px solid var(--gb);
-}
-.dropdown-menu a 
+
+.nav_toggle ion-icon 
 {
   padding: 5px;
-  display: flex;
-  align-items: left;
-  text-decoration: none;
-  color: var(--bright);
+  font-size: 3.5rem;
+  color: var(--white);
 }
-.dropdown-menu a:hover 
+
+.dropdown 
+{
+  position: absolute;
+  top: 55px;
+  left: 10;
+  width: 250px;
+  background: var(--white);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: all 0.5s ease-in;
+  z-index: 9997;
+}
+
+.dropdown-inner 
+{
+  color: var(--bright);
+  border: 1px solid var(--gb);
+  padding: 2px;
+}
+
+.nav_list_menu:hover ion-icon
+{
+  transition: all 0.5s ease-in;
+  transform: rotate(180deg);
+}
+
+.nav_list_menu:hover .dropdown 
+{
+  clip-path: polygon(0 0, 100% 0, 100% 102%, 0 102%);
+}
+
+.item-list 
+{
+  border-bottom: 1px solid var(--gb);
+  cursor: pointer;
+}
+.item-list:hover 
+{
+  background-color: var(--dark); 
+}
+
+.item-list:hover .item-list-info > a
 {
   color: var(--white);
-  background-color: var(--dark);
+  
 }
-.dropdown:hover .dropdown-menu /* CSS selector that targets a dropdown menu element that is a child of an element with the class .dropdown */
+.item-list-info
 {
-  display: block;
+  padding: 15px 5px;
+  margin: 2px;
 }
-.dropdown-menu h3 
-{
-  width: 500px;
-  padding: 10px;
-  font-size: 1.0em;
+.item-list-info > a {
+  background-color: var(--white);
+  color: var(--bright);
+  width: 100%;
+  
+}
+
+@media (max-width:1024px) {
+  .logo-img {
+      width: 300px;
+      margin: 0 auto;
+  }
+  .nav_toggle {
+      display: block;
+  }
+  .nav_menu {
+      position: absolute;
+      top: 3rem;
+      left: 0;
+      width: 100%;
+      background: var(--bright);
+      display: none;
+      z-index: 9996;
+  }
+  .nav_menu.active {
+      display: block;
+  }
+  .nav_list {
+      display: block;
+      margin: 2rem 0;
+      text-align: center;
+  }
+  .nav_link {
+      padding: 0 1rem;
+      
+  }
+  .dropdown {
+      
+      
+      top: 5px;
+      left: 0px;
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      width: 100%;
+      height: 0;
+      text-align: start;
+      transition: all 0.5s ease-in;
+      z-index: 9998;
+  }
+  .nav_list_menu:hover .dropdown {
+      height: 100%;
+      
+  }
 }
 /************************************************************************************************************/
 
@@ -370,95 +459,7 @@ nav a:hover
 
                                             /* FEATURED PRODUCTS STYLING */
                                             
-/* Featured Products section styles */
-.featured-products {
-  background-color: var(--white);
-  padding: 60px 0;
-}
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 3px;
-}
-.product-name
-{
-  margin: 2px 0px;
-  background-color: var(--bright);
-  color: var(--white);
-  font-weight: bold;
-  padding: 5px;
-  text-align: center;
-}
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.product-item {
-  width: 310px;
-  margin: 10px 20px;
-  padding: 5px;
-  border: 1px solid var(--bright);
-  border-radius: 5px;
-  overflow: hidden;
-}
-.product-item:hover .product-img img
-{
-  transform: scale(1.08);
-}
-
-.product-img > img
-{
-  padding: 2px;
-  margin-bottom: 5px;
-  overflow: hidden;
-  width: 300px;
-  transition: transform 0.5s ease-in-out;
-}
-.check-button
-{
-  background-color: var(--bright);
-  border: none;
-  border-radius: 2px;
-  padding: 30px;
-  width: 100%;
-  margin: 0;
-  color: var(--white);
-  font-weight: bolder;
-  font-size: 15px;
-  cursor: pointer;
-}
-.check-button:hover
-{
-  opacity: 0.8;
-}
-.check-button:active
-{
-  opacity: 0.6;
-}
-.product-description
-{
-  color: var(--bright);
-  font-weight: bold;
-  text-align: center;
-  padding: 5px;
-  font-size: 20px;
-}
-.section-title {
-  
-  position: relative;
-  display: inline-block;
-  font-size: 30px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: var(--bright);
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--bright);
-  margin-bottom: 20px;
-  margin-top: 0;
-}
                                             
                                             
                                             
