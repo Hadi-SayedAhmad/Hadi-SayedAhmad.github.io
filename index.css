@@ -304,128 +304,163 @@ i
 
                                               /* SLIDER STYLING */
 
-.slider-container 
-{
-  margin-bottom: 0;
-  margin-top: 3px;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
+                                              .slider-container 
+                                              {
+                                                margin-bottom: 0;
+                                                margin-top: 3px;
+                                                position: relative;
+                                                width: 100%;
+                                                height: 100vh;
+                                                overflow: hidden;
+                                              }
+                                              
+                                              .slider-item 
+                                              {
+                                                position: absolute;
+                                                top: 0;
+                                                left: 0;
+                                                width: 100%;
+                                                height: 100%;
+                                                opacity: 0;
+                                                transition: opacity 0.5s ease-in-out;
+                                              }
+                                              
+                                              
+                                              .slider-item.active 
+                                              {
+                                                opacity: 1;
+                                              }
+                                              
+                                              
+                                              .slider-item img 
+                                              {
+                                                width: 100%;
+                                                height: 100%;
+                                              }
+                                              
+                                              .slider-item-text 
+                                              {
+                                                position: absolute;
+                                                bottom: 20%;
+                                                left: 20%;
+                                                right: 20%;
+                                                opacity: 0;
+                                                transition: opacity 0.5s ease-in-out;
+                                              }
+                                              
+                                              
+                                              .slider-item.active .slider-item-text 
+                                              {
+                                                opacity: 1;
+                                              }
+                                              
+                                              
+                                              .slider-item-text h2, 
+                                              .slider-item-text p 
+                                              {
+                                                margin: 0;
+                                                padding: 0;
+                                                color: var(--white);
+                                                font-size: 3rem;
+                                                line-height: 1.2;
+                                              }
+                                              
+                                              
+                                              .slider-item-text p 
+                                              {
+                                                font-size: 1.5rem;
+                                                margin-top: 1rem;
+                                              }
+                                              
+                                              .slider-arrow 
+                                              {
+                                                position: absolute;
+                                                top: 50%;
+                                                transform: translateY(-50%);
+                                                width: 30px;
+                                                height: 30px;
+                                                background-color: rgba(0, 0, 0, 0.5);
+                                                border-radius: 10%;
+                                                cursor: pointer;
+                                                z-index: 1;
+                                                transition: background-color 0.2s ease-in-out;
+                                              }
+                                              
+                                              .slider-arrow:hover 
+                                              {
+                                                background-color: var(--dark);
+                                              }
+                                              
+                                              
+                                              .slider-arrow-left 
+                                              {
+                                                left: 5px;
+                                              }
+                                              .slider-arrow-right 
+                                              {
+                                                right: 5px;
+                                              }
+                                              
+                                              .slider-arrow:before 
+                                              {
+                                                content: "";
+                                                position: absolute;
+                                                top: 50%;
+                                                left: 50%;
+                                                transform: translate(-50%, -50%);
+                                                width: 12px;
+                                                height: 12px;
+                                                border-top: 2px solid var(--white);
+                                                border-right: 2px solid var(--white);
+                                                transition: transform 0.2s ease-in-out;
+                                              }
+                                              
+                                              /* Left slider arrow icon */
+                                              .slider-arrow-left:before 
+                                              {
+                                                transform: translate(-30%, -45%) rotate(-135deg);
+                                              }
+                                              
+                                              /* Right slider arrow icon */
+                                              .slider-arrow-right:before 
+                                              {
+                                                transform: translate(-60%, -45%) rotate(45deg);
+                                              }
+                                              
+                                              @media only screen and (max-width: 767px) {
+                                                .slider-item-text {
+                                                  bottom: 10%;
+                                                  left: 5%;
+                                                  right: 5%;
+                                                }
+                                              
+                                                .slider-item-text h2 {
+                                                  font-size: 2rem;
+                                                }
+                                              
+                                                .slider-item-text p {
+                                                  font-size: 1rem;
+                                                  margin-top: 0.5rem;
+                                                }
+                                              
+                                                .slider-arrow {
+                                                  width: 20px;
+                                                  height: 20px;
+                                                }
+                                              
+                                                .slider-arrow:before {
+                                                  width: 8px;
+                                                  height: 8px;
+                                                }
 
-.slider-item 
-{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-
-.slider-item.active 
-{
-  opacity: 1;
-}
-
-
-.slider-item img 
-{
-  width: 100%;
-  height: 100%;
-}
-
-.slider-item-text 
-{
-  position: absolute;
-  bottom: 20%;
-  left: 20%;
-  right: 20%;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-
-.slider-item.active .slider-item-text 
-{
-  opacity: 1;
-}
-
-
-.slider-item-text h2, 
-.slider-item-text p 
-{
-  margin: 0;
-  padding: 0;
-  color: var(--white);
-  font-size: 3rem;
-  line-height: 1.2;
-}
-
-
-.slider-item-text p 
-{
-  font-size: 1.5rem;
-  margin-top: 1rem;
-}
-
-.slider-arrow 
-{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10%;
-  cursor: pointer;
-  z-index: 1;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.slider-arrow:hover 
-{
-  background-color: var(--dark);
-}
-
-
-.slider-arrow-left 
-{
-  left: 5px;
-}
-.slider-arrow-right 
-{
-  right: 5px;
-}
-
-.slider-arrow:before 
-{
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
-  border-top: 2px solid var(--white);
-  border-right: 2px solid var(--white);
-  transition: transform 0.2s ease-in-out;
-}
-
-/* Left slider arrow icon */
-.slider-arrow-left:before 
-{
-  transform: translate(-30%, -45%) rotate(-135deg);
-}
-
-/* Right slider arrow icon */
-.slider-arrow-right:before 
-{
-  transform: translate(-60%, -45%) rotate(45deg);
-}
+                                                .slider-item img {
+                                                  width: 100%;
+                                                  height: 100%;
+                                                  object-fit: cover;
+                                                }
+                                                
+                                              }
+                                              
 
                               /*****************************************/
 
