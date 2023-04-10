@@ -1,37 +1,4 @@
-// Define the function that filters the displayed products
-const filterDisplayedProducts = function () 
-{
-  const input = document.querySelector('.search-container input[type="text"]');
-  const filter = input.value.toLowerCase();
-  const products = document.querySelectorAll(".product");
-  const message = document.querySelector(".search-message");
 
-  let count = 0;
-  products.forEach(function (product) {
-    const name = product
-      .querySelector(".product-name")
-      .textContent.toLowerCase();
-    if (name.includes(filter)) {
-      product.style.display = "block";
-      count++;
-    } else {
-      product.style.display = "none";
-    }
-  });
-
-  if (count > 0) {
-    message.textContent = `Search results for '${input.value}': ${count} product(s) found.`;
-  } else {
-    message.textContent = `No products found for '${input.value}'.`;
-  }
-};
-
-// Add a click event listener to the search button
-const searchBtn = document.querySelector(".search-container button");
-searchBtn.addEventListener("click", function (event) {
-  event.preventDefault(); // Prevent form submission
-  filterDisplayedProducts(); // Call the filter function
-});
 
 
 
