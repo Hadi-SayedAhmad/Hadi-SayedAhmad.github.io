@@ -390,17 +390,17 @@ i {
   }
 
   .slider-item-text h2 {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 
   .slider-item-text p {
-    font-size: 0.9rem;
+    font-size: 1.0rem;
     margin-top: 0.5rem;
   }
 
   .slider-arrow {
     position: absolute;
-    top: 35%;
+    top: 50%;
 
     width: 15px;
     height: 15px;
