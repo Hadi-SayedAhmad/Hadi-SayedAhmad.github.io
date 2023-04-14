@@ -3,7 +3,12 @@
 /* DESIGN COLORS USED */
 :root
 {
+  --container: 120rem;
+  --primary: hsl(201.43, 13.21%, 58.43%);
   --white: #fff;
+  --white: hsl(0, 0%, 100%);
+  --white-light: hsl(0, 0%, 99%);
+  --box-shadow: hsl(220, 7.32%, 91.96%);
   --bright:  rgb(44, 116, 179);
   --dark: rgb(20, 66, 114);
   --gb: #ccc;
@@ -118,6 +123,7 @@ i
 /* Responsive styles */
 @media screen and (max-width: 1024px) 
 {
+  
   .header {
     height: auto;
     padding: 5px;
@@ -143,7 +149,7 @@ i
 
 /* NAVIGATION SECTION STYLING */
 
-.container {
+.navcontainer {
   max-width:  100%;
   margin: 0;
   padding: 0;
@@ -474,7 +480,185 @@ i
 
                                             /* FEATURED PRODUCTS STYLING */
                                             
+.container {
+  max-width: var(--container);
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+header {
+  text-align: center;
+}
+.section-heading {
+  color: var(--bright);
+  margin: 2rem 0;
+  font-size: 2.5rem;
+  padding-bottom: 1.2rem;
+  position: relative;
+  display: inline-block;
+}
+.section-heading::before,
+.section-heading::after {
+  content: '';
+  position: absolute;
+}
+.section-heading::before {
+  width: 100%;
+  height: 0.2rem;
+  bottom: 0;
+  left: 0;
+  background: var(--dark);
+  border-radius: 0.2rem;
+}
+.section-heading::after {
+  bottom: -0.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1rem;
+  height: 1rem;
+  border: 0.2rem solid var(--dark);
+  background: var(--white);
+}
+.tab-container {
+ 
+  width: 90%;
+  margin: 0 auto 3rem auto;
+  box-shadow: 0 0.8rem 1rem var(--box-shadow);
+}
+@media (max-width: 1024px) {
+  .container
+  {
+    width: 100%;
+  }
+  .tab-container {
+    width: 100%;
+    margin: 0 auto 3rem auto;
+  }
+  .tab-content-left img
+  {
+    width: 85%;
+  }
+  .tab-content-right img
+  {
+    width: 85%;
+  }
+  .paragraph
+  {
+    margin-right: 0;
+    width: 60%;
+  }
+  .tab-filter-item-container div
+  {
+    padding: 8px;
+  }
+  .tab-heading {
+    
+    width: 80%;
+    font-size: 1.2rem !important;
+  }
+  .btn-primary
+  {
+    margin-top: 8px !important;
+    margin-bottom: 10px;
+  }
 
+}
+.tab-filter-container {
+  padding: 1.0rem;
+  text-align: center;
+  background: hsl(205.71, 30.43%, 95.49%);
+}
+.filter-btn {
+  color: var(--dark);
+  display: inline-flex;
+  padding: 1rem 2.0rem;
+  cursor: pointer;
+  border-radius: 2rem;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.filter-btn.active {
+  background: var(--bright);
+  color: var(--white);
+}
+.tab-filter-item-container {
+  
+  padding: 0px;
+  background: var(--white);
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.tab-filter-item-container:hover .tab-img
+{
+  transform: scale(1.1);
+}
+.tab-content-right
+{
+  font-size: 15;
+  color: var(--dark);
+}
+.tab-content-left
+{
+ 
+  font-size: 15px;
+  color: var(--dark);
+}
+.tab-item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 0rem 3rem;
+  transform: translateY(100%);
+  background: var(--white-light);
+  transition: transform 0.5s ease-in-out;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
+  place-items: center start;
+}
+.tab-img {
+  margin: 0px auto;
+  width: 25rem;
+  transition: all 0.5s ease-in-out;
+}
+.tab-heading {
+  color: var(--bright);
+  padding: 1rem 0;
+  font-size: 2.5rem;
+}
+.tab-item.select_tab {
+  transform: translateY(0);
+  transition: transform 0.5s ease-in-out;
+  background: var(--white-light);
+  animation: feadIn 0.6s ease-in-out;
+}
+.btn-primary {
+  margin-top: 1.5rem;
+  display: inline-block;
+  background: var(--bright);
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  color: var(--white);
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+.btn-primary:hover
+{
+  background-color: var(--dark);
+}
+.btn-primary:active
+{
+  opacity: 0.8;
+}
+@keyframes feadIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
                                             
                                             
                                             
