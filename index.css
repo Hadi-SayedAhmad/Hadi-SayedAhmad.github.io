@@ -486,21 +486,21 @@ header {
     margin: 0 auto 3rem auto;
   }
   .tab-content-left img {
-    width: 85%;
+    width: 70% !important;
   }
   .tab-content-right img {
-    width: 85%;
+    width: 70% !important;
   }
   .paragraph {
     margin-right: 0;
     width: 60%;
   }
   .tab-filter-item-container div {
-    padding: 8px;
+    padding: 5px;
   }
   .tab-heading {
     width: 80%;
-    font-size: 1.2rem !important;
+    font-size: 1.3rem !important;
   }
   .btn-primary {
     margin-top: 8px !important;
@@ -538,8 +538,14 @@ header {
   transform: scale(1.1);
 }
 .tab-content-right {
-  font-size: 15;
+  font-size: 15px;
   color: var(--dark);
+}
+.tab-content-left img {
+  width: 100%;
+}
+.tab-content-right img {
+  width: 100%;
 }
 .tab-content-left {
   font-size: 15px;
@@ -559,7 +565,7 @@ header {
 }
 .tab-img {
   margin: 0px auto;
-  width: 25rem;
+  width: 30rem;
   transition: all 0.5s ease-in-out;
 }
 .tab-heading {
