@@ -614,3 +614,39 @@ header {
 }
 
 /************************************************************************************************************/
+.back_to_top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  background: var(--bright);
+  border-radius: 0.4rem;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 0 0.2rem var(--dark);
+  transition: all 0.2s ease-in-out;
+  transform: translateY(-30rem);
+}
+
+.back_to_top ion-icon {
+  color: var(--white);
+  font-size: 30px;
+}
+
+.back_to_top.show {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+  transform: translateY(0rem);
+}
+.back_to_top.show:hover
+{
+  opacity: 0.8;
+}
+.back_to_top.show:active
+{
+  opacity: 0.6;
+}
