@@ -434,74 +434,83 @@ i
   }
 }
 /***********************************************************************************************************************/
-.btn {
+.about-us {
+  background-color: #f7f7f7;
+  padding: 20px 0;
+}
+
+.about-us-container {
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-us-content {
+  flex-basis: calc(50% - 30px);
+  max-width: 500px;
+  margin-bottom: 2px;
+}
+
+.about-us-content h2 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.about-us-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--dark);
+  margin-top: 10px;
+}
+
+.about-us-image {
+  flex-basis: calc(40% - 30px);
+  max-width: 400px;
+  margin: 0 50px;
+}
+
+.about-us-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media screen and (max-width: 767px) {
+  .about-us-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .about-us-content,
+  .about-us-image {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  
+  .about-us-image {
+    margin: 20px auto !important;
+  }
+}
+.fabbtn
+{
+  padding: 15px;
+  margin-top: 10px;
   background-color: var(--bright);
   color: var(--white);
-  padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  width: 45%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
-
-.btn:hover {
+.fabbtn:hover
+{
   background-color: var(--dark);
-}
-
-.about {
-  position: relative;
-  background-color: white;
-  padding: 70px;
-}
-
-.about h2 {
-  color: var(--bright);
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.about-content {
-  color: var(--dark);
-  max-width: 600px;
-  margin-right: 50px;
-}
-.about-img
-{
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  top: 45px;
-  right: 510px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-.about-content p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-@media (max-width: 1024px)
-{
-  .about {
-    position: relative;
-    background-color: white;
-    padding: 12px;
-    
-  }
-  .about-img
-{
- 
-  position: absolute;
-  top: 540px;
-  right: 390px;
-  
-  margin: 0 auto;
-}
-.fabout-container
-{
-  width: 90%;
-  margin: 0 auto;
-}
 }
 /* FEATURED PRODUCTS STYLING */
 .container 
@@ -518,7 +527,7 @@ header
 {
   
   color: var(--bright);
-  margin: 2rem 0;
+  margin: 1rem 0;
   font-size: 2.5rem;
   padding-bottom: 1.2rem;
   position: relative;
@@ -564,7 +573,6 @@ header
   .section-heading 
   {
     color: var(--bright);
-    margin-top: 355px !important;
     margin: 2rem 0;
     font-size: 1.8rem;
     padding-bottom: 1.2rem;
