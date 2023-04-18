@@ -34,7 +34,6 @@
 /* GENERAL STYLING OF THE BODY */
 body 
 {
-  background-color: var(--white);
   font-family: Arial, Helvetica, sans-serif;
 }
 * /* targetting all the elements */ 
@@ -51,7 +50,6 @@ body
 header a 
 {
   color: var(--bright);
-  text-decoration: none;
   transition: all 0.25s ease-in-out;
 }
 header a:hover 
@@ -60,8 +58,6 @@ header a:hover
 }
 .header 
 {
-  background-color: var(--white);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   height: 150px;
   display: flex;
   flex-wrap: wrap;
@@ -71,18 +67,12 @@ header a:hover
 }
 .logo 
 {
-  flex: 0 0 auto;
-  margin-right: 20px;
-  order: 1;
-  text-align: center;
-  width: 100%;
   max-width: 200px;
 }
 .logo img 
 {
+  order: 1;
   max-width: 100%;
-  height: auto;
-  display: block;
   margin: 5px;
 }
 .contact-info 
@@ -91,12 +81,6 @@ header a:hover
   order: 2;
   text-align: center;
   padding: 5px;
-}
-.contact-info ul 
-{
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 .contact-info li 
 {
@@ -131,7 +115,6 @@ i
 {
   color: var(--bright);
 }
-
 /* Responsive styles */
 @media screen and (max-width: 1024px) 
 {
@@ -150,11 +133,6 @@ i
     margin-bottom: 0px;
     margin-right: auto;
     margin-left: auto;
-    width: auto;
-  }
-  .contact-info 
-  {
-    order: 1;
   }
   .cta 
   {
@@ -167,8 +145,6 @@ i
 .navcontainer 
 {
   max-width: 100%;
-  margin: 0;
-  padding: 0;
 }
 .navigation 
 {
@@ -203,8 +179,8 @@ i
 }
 .nav_toggle ion-icon 
 {
-  padding: 5px;
-  font-size: 3.5rem;
+  padding: 3px;
+  font-size: 2.3rem;
   color: var(--white);
 }
 .dropdown 
@@ -214,13 +190,12 @@ i
   left: 10;
   width: 250px;
   background: var(--white);
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* closed */
   transition: all 0.5s ease-in;
   z-index: 9997;
 }
 .dropdown-inner 
 {
-  color: var(--bright);
   border: 1px solid var(--gb);
   padding: 2px;
 }
@@ -231,7 +206,7 @@ i
 }
 .nav_list_menu:hover .dropdown 
 {
-  clip-path: polygon(0 0, 100% 0, 100% 102%, 0 102%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 .item-list 
 {
@@ -259,10 +234,9 @@ i
 }
 @media (max-width: 1024px) 
 {
-  .logo-img 
+  .navigation
   {
-    width: 300px;
-    margin: 0 auto;
+    height: 45px;
   }
   .nav_toggle 
   {
@@ -271,15 +245,16 @@ i
   .nav_menu 
   {
     position: absolute;
-    top: 3rem;
+    top: 2.7rem;
     left: 0;
     width: 100%;
     background: var(--bright);
     display: none;
     z-index: 9996;
   }
-  .nav_menu.active 
-  {
+  
+  .nav_menu.active
+  { 
     display: block;
   }
   .nav_list 
@@ -459,7 +434,75 @@ i
   }
 }
 /***********************************************************************************************************************/
+.btn {
+  background-color: var(--bright);
+  color: var(--white);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
 
+.btn:hover {
+  background-color: var(--dark);
+}
+
+.about {
+  position: relative;
+  background-color: white;
+  padding: 70px;
+}
+
+.about h2 {
+  color: var(--bright);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-content {
+  color: var(--dark);
+  max-width: 600px;
+  margin-right: 50px;
+}
+.about-img
+{
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 45px;
+  right: 510px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.about-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+@media (max-width: 1024px)
+{
+  .about {
+    position: relative;
+    background-color: white;
+    padding: 12px;
+    
+  }
+  .about-img
+{
+ 
+  position: absolute;
+  top: 540px;
+  right: 390px;
+  
+  margin: 0 auto;
+}
+.fabout-container
+{
+  width: 90%;
+  margin: 0 auto;
+}
+}
 /* FEATURED PRODUCTS STYLING */
 .container 
 {
@@ -473,6 +516,7 @@ header
 }
 .section-heading 
 {
+  
   color: var(--bright);
   margin: 2rem 0;
   font-size: 2.5rem;
@@ -520,6 +564,7 @@ header
   .section-heading 
   {
     color: var(--bright);
+    margin-top: 355px !important;
     margin: 2rem 0;
     font-size: 1.8rem;
     padding-bottom: 1.2rem;

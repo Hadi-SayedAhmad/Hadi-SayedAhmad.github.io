@@ -20,3 +20,15 @@ slideTimer = setInterval(nextSlide, slideInterval); call the nextSlide() functio
 The nextSlide() function is defined to move to the next slide in the slider.
 
 /*********************************************************************************************************************************************************************/
+
+
+
+/* SCRIPT TAGS */
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+ECMAScript modules, are a newer way of loading JavaScript code that provides better performance, modularity, and maintainability. When you include a module in your webpage using a script tag with type="module", the browser downloads the module and executes it only when it is needed. This allows you to load and execute smaller chunks of code on demand, which can help improve the performance of your webpage.
+
+/*********************************************************************************************************************************************************************/
