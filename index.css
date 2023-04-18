@@ -452,8 +452,14 @@ i
   flex-basis: calc(50% - 30px);
   max-width: 500px;
   margin-bottom: 2px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
 }
-
+.about-us-content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 .about-us-content h2 {
   font-size: 36px;
   font-weight: 600;
@@ -471,8 +477,14 @@ i
   flex-basis: calc(40% - 30px);
   max-width: 400px;
   margin: 0 50px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
 }
-
+.about-us-image.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 .about-us-image img {
   max-width: 100%;
   height: auto;
