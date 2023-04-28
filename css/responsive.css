@@ -1,0 +1,11 @@
+@media screen and (max-width: 600px)
+{
+  .material-symbols-outlined
+  {
+    display: block !important;
+  }
+  header section nav
+  {
+    display: none;
+  }
+}
