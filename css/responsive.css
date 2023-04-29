@@ -2,10 +2,24 @@
 {
   .material-symbols-outlined
   {
+    cursor: pointer;
     display: block !important;
   }
-  header section nav
+  .nav_section
   {
     display: none;
+  }
+  .sideBar
+  {
+    width: 100%;
+    padding: 10px 0;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 600px)
+{
+  .sideBar
+  {
+    display: none !important;
   }
 }
