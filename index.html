@@ -1,29 +1,364 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Products Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    <section class="products">
 
-        <section class="section-title">Our Products</section>
-        
-        <section class="products-sec">
+    <section class="container my-5">
 
-            
+        <div class="row my-2">
+            <div class="col-12 col-lg-6">
+                <h1>To - do App</h1>
+                <div class="input-group">
+                    <input id="name-input" type="text" class="form-control" placeholder="Enter your name">
+                </div>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="input-group">
+                    <input id="task-input" type="text" class="form-control" placeholder="What you have planned?">
+                    <button onclick="addTask()" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
 
-        </section>
-
-        
+        <div class="row">
+            <div class="col-12 col-4">
+                <div class="task my-3"></div>
+            </div>
+        </div>
 
     </section>
-    
 
-    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var todos = [];
+
+        function addTask() {
+            var nameInput = document.getElementById('name-input');
+            var nameValue = nameInput.value;
+
+            var taskInput = document.getElementById('task-input');
+            var taskValue = taskInput.value;
+
+
+
+            if (taskValue === '' || nameValue === '') {
+                nameValue = '';
+                taskValue = '';
+                alert("Fill the form first!");
+                return;
+            }
+
+            todos.push({
+                date: new Date().toLocaleDateString(),
+                id: Math.floor(Math.random() * 100),
+                task: taskValue,
+                iscompleted: false,
+                user: nameValue
+            });
+
+
+
+            // Store the updated todos array in local storage
+            localStorage.setItem('todos', JSON.stringify(todos));
+
+            renderTasks();
+            nameInput.value = '';
+            taskInput.value = '';
+
+            console.log("Task added successfully!");
+
+        }
+
+        function renderTasks() {
+            var taskContainer = document.querySelector('.task');
+
+            taskContainer.innerHTML = ''; // Clear the existing tasks because if not there will be redundancy, because we will import again already added terms and rendered
+
+            var storedTasks = JSON.parse(localStorage.getItem('todos')) || []; // or empty array because if we just turned on the pc, local storage will be empty
+
+            todos = storedTasks; // because when we refresh, the array will be empty and we need data from local storage!
+
+
+            todos.forEach(function (task) {
+                if (task.iscompleted === false) {
+                    var taskDiv = document.createElement('div');
+                    taskDiv.classList.add('bg-primary', 'task-item', 'my-3', 'p-2', 'text-light', 'rounded');
+                    taskDiv.setAttribute("task-id", task.id);
+
+
+                    taskDiv.innerHTML = '<strong>Name:</strong> ' + task.user + '<br>' +
+                        '<strong>ID:</strong> ' + task.id + '<br>' +
+                        '<strong>Task:</strong> ' + `<span>${task.task}</span>` + '<br>' +
+                        '<strong>Date:</strong> ' + task.date;
+
+                    var btnDiv = document.createElement("div");
+                    btnDiv.classList.add('my-2');
+                    taskDiv.appendChild(btnDiv);
+
+                    var deleteBtn = document.createElement("button");
+                    deleteBtn.textContent = "Delete";
+                    deleteBtn.classList.add('btn', 'btn-danger', 'me-1', 'delete');
+                    btnDiv.appendChild(deleteBtn);
+
+                    deleteBtn.addEventListener('click', deleteTask);
+
+                    var editBtn = document.createElement("button");
+                    editBtn.textContent = "Edit";
+                    editBtn.classList.add('btn', 'btn-warning', 'me-1');
+                    btnDiv.appendChild(editBtn);
+                    editBtn.addEventListener('click', editTask);
+
+                    var doneBtn = document.createElement("button");
+                    doneBtn.textContent = "Done";
+                    doneBtn.classList.add('btn', 'btn-success');
+                    btnDiv.appendChild(doneBtn);
+                    doneBtn.addEventListener('click', taskDone);
+
+
+                    taskContainer.appendChild(taskDiv);
+                }
+
+            });
+        }
+
+
+        function deleteTask(e) {
+
+            var deleteBtn = e.target;
+            var GparentDiv = deleteBtn.parentElement.parentElement;
+            var GparentDivId = GparentDiv.getAttribute("task-id");
+            console.log(GparentDivId);
+
+
+            //   for(var i = 0; i<todos.length; i++)
+            //   {
+            //       console.log(`${todos[i].id} === ${GparentDivId}`);
+            //   }
+
+            todos = todos.filter((task) => task.id != GparentDivId);
+
+            GparentDiv.remove();
+            localStorage.setItem('todos', JSON.stringify(todos));
+
+
+        }
+
+
+        function editTask(e) {
+            var editBtn = e.target;
+            var GparentDiv = editBtn.parentElement.parentElement;
+            var GparentDivId = GparentDiv.getAttribute("task-id");
+
+            // getting reference (not copy) to the task from array using find method: modify directly in the array
+            var task = todos.find(function (task) {
+                return task.id == GparentDivId;
+            });
+            console.log(task); // testing
+
+            // <!-- The Modal -->
+            // <div id="myModal" class="modal">
+
+            //     <!-- Modal content -->
+            //     <div class="modal-content">
+            //         <span class="close">&times;</span>
+            //         <p>Some text in the Modal..</p>
+            //     </div>
+
+            // </div>
+
+            var modal = document.createElement("div");
+            modal.classList.add("modal");
+            modal.setAttribute("id", "myModal");
+            document.body.appendChild(modal);
+
+
+
+            var modalContent = document.createElement("div");
+            modalContent.classList.add("modal-content");
+            modal.appendChild(modalContent);
+
+
+
+            var editForm = document.createElement('form');
+            modalContent.appendChild(editForm);
+            editForm.classList.add("d-flex", "align-items-center", "justify-content-between");
+
+            var X = document.createElement("span");
+            X.textContent = "x";
+            X.classList.add("close", "mb-2");
+            editForm.appendChild(X);
+            X.onclick = function () {
+                modal.style.display = "none";
+            }
+            // input for editing task details
+            var taskInput = document.createElement("input");
+            taskInput.classList.add("form-control", "ms-3");
+            taskInput.type = "text";
+            taskInput.name = "task";
+            taskInput.value = task.task;
+
+
+            editForm.appendChild(taskInput);
+
+
+            var saveButton = document.createElement('button');
+            saveButton.textContent = 'Save';
+            saveButton.type = 'submit';
+            editForm.appendChild(saveButton);
+            saveButton.classList.add("ms-2", "btn", "btn-primary");
+
+            modal.style.display = "block";
+
+            editForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                if (taskInput.value == "") {
+                    alert("Task can't be empty!");
+                    return;
+                }
+
+                task.task = taskInput.value;
+                task.date = new Date().toLocaleDateString();
+
+
+                GparentDiv.innerHTML =
+                    '<strong>Name:</strong> ' +
+                    task.user +
+                    '<br>' +
+                    '<strong>ID:</strong> ' +
+                    task.id +
+                    '<br>' +
+                    '<strong>Task:</strong> ' +
+                    '<span>' +
+                    task.task +
+                    '</span>' +
+                    '<br>' +
+                    '<strong>Date:</strong> ' +
+                    task.date;
+
+                var btnDiv = document.createElement("div");
+                btnDiv.classList.add('my-2');
+                GparentDiv.appendChild(btnDiv);
+
+                var deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete";
+                deleteBtn.classList.add('btn', 'btn-danger', 'me-1', 'delete');
+                btnDiv.appendChild(deleteBtn);
+
+                deleteBtn.addEventListener('click', deleteTask);
+
+                var editBtn = document.createElement("button");
+                editBtn.textContent = "Edit";
+                editBtn.classList.add('btn', 'btn-warning', 'me-1');
+                btnDiv.appendChild(editBtn);
+                editBtn.addEventListener('click', editTask);
+
+                var doneBtn = document.createElement("button");
+                doneBtn.textContent = "Done";
+                doneBtn.classList.add('btn', 'btn-success');
+                btnDiv.appendChild(doneBtn);
+
+                modal.remove();
+
+
+                localStorage.setItem('todos', JSON.stringify(todos));
+            });
+
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
+
+
+        function taskDone(e) {
+            var doneBtn = e.target;
+            var GparentDiv = doneBtn.parentElement.parentElement;
+            var GparentDivId = GparentDiv.getAttribute("task-id");
+
+            var task = todos.find(function (task) {
+                return task.id == GparentDivId;
+            });
+
+            if (task.iscompleted === false) {
+                task.iscompleted = true;
+            }
+
+
+            if (task.iscompleted === true) {
+
+                GparentDiv.classList.remove("'bg-primary'");
+                GparentDiv.classList.add('bg-success', 'task-item', 'my-3', 'p-2', 'text-light', 'rounded');
+
+
+                GparentDiv.innerHTML =
+                    '<strong style="color: yellow;">COMPLETED TASK! Note that this task will be removed when you refresh the web page.</strong> ' +
+                    '<br>' +
+                    '<strong>Name:</strong> ' +
+                    task.user +
+                    '<br>' +
+                    '<strong>ID:</strong> ' +
+                    task.id +
+                    '<br>' +
+                    '<strong>Task:</strong> ' +
+                    '<span style="text-decoration: 2px yellow line-through;">' +
+                    task.task +
+                    '</span>' +
+                    '<br>' +
+                    '<strong>Date:</strong> ' +
+                    '<span>' +
+                    task.date +
+                    '</span>'
+
+                var btnDiv = document.createElement("div");
+                btnDiv.classList.add('my-2');
+                GparentDiv.appendChild(btnDiv);
+
+                var deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete";
+                deleteBtn.classList.add('btn', 'btn-danger', 'me-1', 'delete');
+                btnDiv.appendChild(deleteBtn);
+
+                deleteBtn.addEventListener('click', deleteTask);
+
+                todos = todos.filter((task) => task.id != GparentDivId);
+
+                localStorage.setItem('todos', JSON.stringify(todos));
+            }
+
+
+            console.log(task.iscompleted);
+        }
+
+        // Render tasks when we open browser
+        renderTasks();
+
+
+        
+
+
+
+
+
+
+        console.log(localStorage.getItem('todos'));
+    </script>
 </body>
+
 </html>
