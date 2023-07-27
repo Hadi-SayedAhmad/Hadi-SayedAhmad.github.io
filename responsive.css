@@ -1,11 +1,69 @@
 @media (max-width: 993px) {
-    #title
-    {
+
+    #title {
         text-align: center;
     }
+
     .title-img {
         width: 45% !important;
-        transform: rotate(0)!important; 
+        transform: rotate(0) !important;
         position: static;
+    }
+}
+@media (max-width: 550px){
+    .navbar {
+        padding: 0 0 1.5rem;
+    }
+    .container-fluid {
+        padding: 5% 9%;
+    }
+    .big-heading {
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.2;
+    }
+    
+    .download-btn
+    {
+        font-size: 0.8rem;
+        width: 110px !important;
+        padding: 5px;
+    }
+
+    .section-heading {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+    .navbar-brand {
+        font-family: "Ubuntu";
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    #title .container-fluid {
+        padding: 5% 12% 5%;
+    }
+
+    .testimonial-text {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+
+    #pricing {
+        padding: 50px;
+    }
+
+    .card-header-text {
+        font-size: 1.2rem;
+    }
+    
+    .price-text {
+        font-size: 1.3rem;
+        line-height: 1.2;
+    }
+
+    .footer-icons {
+        font-size: 1.2rem;
+        margin: 10px 0;
     }
 }
